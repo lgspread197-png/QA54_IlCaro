@@ -51,7 +51,7 @@ class RegistrationPage:
         self.driver.find_element(*self.BUTTON_REGISTRATION).click()
 
     def is_log_out_button_displayed(self):
-        self.driver.find_element(*self.LOG_OUT_BUTTON).is_displayed()
+        return self.driver.find_element(*self.LOG_OUT_BUTTON).is_displayed()
 
     # def is_sign_out_displayed(self):
     #     return self.driver.find_element(*self.SIGN_OUT_BUTTON).is_displayed()
