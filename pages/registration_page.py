@@ -18,7 +18,10 @@ class RegistrationPage:
     CONFIRMATION_TEXT1 = (By.CSS_SELECTOR, "h3")
     CONFIRMATION_TEXT2 = (By.CSS_SELECTOR, "p")
     OK_BUTTON = (By.XPATH, "//*[text()='OK']")
-    ERROR_MESSAGE = (By.XPATH, "//*[text()='Name is required']")
+    ERROR_MESSAGE1 = (By.XPATH, "//*[text()='Name is required']")
+    ERROR_MESSAGE2 = (By.XPATH, "//*[text()='Last name is required']")
+    ERROR_MESSAGE3 = (By.XPATH, "//*[text()='Wrong email format']")
+    ERROR_MESSAGE4 = (By.XPATH, "//*[text()='Password must contain minimum 6 symbols']")
 
 
     def __init__(self, driver):
@@ -97,9 +100,27 @@ class RegistrationPage:
     def close_window(self):
         self.driver.find_element(*self.OK_BUTTON).click()
 
-    def error_message_text(self):
+    def error_message_text1(self):
         element = WebDriverWait(self.driver, 10).until(
-            expected_conditions.visibility_of_element_located(self.ERROR_MESSAGE)
+            expected_conditions.visibility_of_element_located(self.ERROR_MESSAGE1)
+        )
+        return element.text
+
+    def error_message_text2(self):
+        element = WebDriverWait(self.driver, 10).until(
+            expected_conditions.visibility_of_element_located(self.ERROR_MESSAGE2)
+        )
+        return element.text
+
+    def error_message_text3(self):
+        element = WebDriverWait(self.driver, 10).until(
+            expected_conditions.visibility_of_element_located(self.ERROR_MESSAGE3)
+        )
+        return element.text
+
+    def error_message_text4(self):
+        element = WebDriverWait(self.driver, 10).until(
+            expected_conditions.visibility_of_element_located(self.ERROR_MESSAGE4)
         )
         return element.text
 
